@@ -8,6 +8,8 @@ section {
     color: #fff;
     font-size: 2rem;
     text-align: center;
+
+    /* flex-grow: 1; this means all of my flex-items will be distributed evenly */
 }
 
 /* :nth child selectors - selects elements based on their position as a child in any parent element*/
@@ -40,4 +42,29 @@ section:nth-last-child(2) {
 section:only-child {
     background-color: whitesmoke;
     color: darkslategray;
+}
+
+/* flexbox lays out their content based on content width, In this sections are wide as the h2 heading inside of them
+due to their default width these sections do not grow to fit the screen width when there is more room inside the flex container
+
+Flexbox can allow flex items to grow beyond their content width to take up all the room on the row.
+
+
+- The default is flex-grow: 0; & flex-shrink: 1; 
+- flex-basis: is the preferred width
+- flex-basis: is flex-grow and flex-shrink combined into one css property
+
+*/
+section:nth-child(2) {
+    /* flex-grow: 4; */
+}
+section {
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 200px; /*Judging by how much items you want side by side you would divide by the amount of items on 1 row.*/
+
+    /* shorthand for all three properties */
+    flex: 1 1 250px;
+
+     /* flex-grow is first, flex-shrink is second, and lastly flex-basis is last. */
 }
